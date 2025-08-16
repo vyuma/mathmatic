@@ -69,19 +69,19 @@ Type some text here and try the math input features:
         <div className="examples-grid">
           <div className="example">
             <strong>Quadratic Formula:</strong>
-            <code>x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}</code>
+            <code>{'x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}'}</code>
           </div>
           <div className="example">
             <strong>Integral:</strong>
-            <code>\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}</code>
+            <code>{'\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}'}</code>
           </div>
           <div className="example">
             <strong>Matrix:</strong>
-            <code>\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}</code>
+            <code>{'\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}'}</code>
           </div>
           <div className="example">
             <strong>Sum:</strong>
-            <code>\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}</code>
+            <code>{'\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}'}</code>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   css: {
     preprocessorOptions: {
-      css: {
+      scss: {
         charset: false
       }
     }
