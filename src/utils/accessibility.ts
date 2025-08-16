@@ -198,10 +198,6 @@ export const auditAccessibility = (): string[] => {
   }
   
   // Check for missing focus indicators
-  const focusableElements = document.querySelectorAll(
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-  );
-  
   // This would need more sophisticated checking in a real implementation
   
   return issues;

@@ -44,7 +44,7 @@ export const ERROR_MESSAGES = {
   NETWORK_ERROR: 'Network connection error. Please check your internet connection.',
   UNKNOWN_ERROR: 'An unexpected error occurred. Please try again.',
   COMPONENT_ERROR: 'A component error occurred. The page will be refreshed.',
-} as const;
+};
 
 // Error severity levels
 export enum ErrorSeverity {

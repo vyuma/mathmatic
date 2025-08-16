@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import rehypeKatex from 'rehype-katex';
 import rehypeStringify from 'rehype-stringify';
-import { Note } from '../types';
+import type { Note } from '../types';
 
 /**
  * Process markdown content and convert to HTML with math support

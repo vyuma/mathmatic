@@ -1,4 +1,4 @@
-import { Note } from '../types';
+import type { Note } from '../types';
 
 /**
  * Generate a unique ID for a new note

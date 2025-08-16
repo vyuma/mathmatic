@@ -11,7 +11,7 @@ export interface PerformanceMetrics {
 export class PerformanceMonitor {
   private static instance: PerformanceMonitor;
   private metrics: PerformanceMetrics[] = [];
-  private observers: Map<string, PerformanceObserver> = new Map();
+  // private observers: Map<string, PerformanceObserver> = new Map();
 
   static getInstance(): PerformanceMonitor {
     if (!PerformanceMonitor.instance) {
@@ -36,7 +36,7 @@ export class PerformanceMonitor {
         timestamp: Date.now(),
       });
       
-      if (process.env.NODE_ENV === 'development') {
+      if (import.meta.env.DEV) {
         console.log(`${componentName} render time: ${renderTime.toFixed(2)}ms`);
       }
     };

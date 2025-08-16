@@ -1,4 +1,4 @@
-import { Note, NoteMetadata, MathNode } from '../types';
+import type { Note, NoteMetadata, MathNode } from '../types';
 
 // Validation error class
 export class ValidationError extends Error {
