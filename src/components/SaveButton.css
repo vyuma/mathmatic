@@ -1,0 +1,170 @@
+.save-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.save-button:focus {
+  outline: 2px solid var(--focus-color, #007bff);
+  outline-offset: 2px;
+}
+
+.save-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Size variants */
+.save-button.small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  gap: 0.25rem;
+}
+
+.save-button.medium {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  gap: 0.5rem;
+}
+
+.save-button.large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  gap: 0.75rem;
+}
+
+/* Color variants */
+.save-button.primary.has-changes {
+  background: var(--button-primary-bg, #007bff);
+  color: var(--button-primary-text, #ffffff);
+  border-color: var(--button-primary-border, #007bff);
+}
+
+.save-button.primary.has-changes:hover:not(:disabled) {
+  background: var(--button-primary-hover-bg, #0056b3);
+  border-color: var(--button-primary-hover-border, #0056b3);
+}
+
+.save-button.primary.no-changes {
+  background: var(--button-success-bg, #28a745);
+  color: var(--button-success-text, #ffffff);
+  border-color: var(--button-success-border, #28a745);
+}
+
+.save-button.secondary.has-changes {
+  background: var(--button-secondary-bg, #6c757d);
+  color: var(--button-secondary-text, #ffffff);
+  border-color: var(--button-secondary-border, #6c757d);
+}
+
+.save-button.secondary.has-changes:hover:not(:disabled) {
+  background: var(--button-secondary-hover-bg, #545b62);
+  border-color: var(--button-secondary-hover-border, #545b62);
+}
+
+.save-button.secondary.no-changes {
+  background: var(--button-secondary-bg, #f8f9fa);
+  color: var(--button-secondary-text, #6c757d);
+  border-color: var(--button-secondary-border, #dee2e6);
+}
+
+/* Icon styling */
+.save-button-icon {
+  font-size: 0.875em;
+  line-height: 1;
+}
+
+.save-button-text {
+  line-height: 1;
+}
+
+/* Animation for saving state */
+.save-button.has-changes .save-button-icon {
+  animation: none;
+}
+
+.save-button:disabled .save-button-icon {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Keyboard shortcut hint */
+.save-button::after {
+  content: '';
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--tooltip-bg, #333);
+  color: var(--tooltip-text, #fff);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+.save-button:hover::after {
+  content: 'Ctrl+S';
+  opacity: 1;
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .save-button.primary.has-changes {
+    background: var(--button-primary-bg-dark, #0d6efd);
+    border-color: var(--button-primary-border-dark, #0d6efd);
+  }
+
+  .save-button.primary.has-changes:hover:not(:disabled) {
+    background: var(--button-primary-hover-bg-dark, #0b5ed7);
+    border-color: var(--button-primary-hover-border-dark, #0b5ed7);
+  }
+
+  .save-button.primary.no-changes {
+    background: var(--button-success-bg-dark, #198754);
+    border-color: var(--button-success-border-dark, #198754);
+  }
+
+  .save-button.secondary.no-changes {
+    background: var(--button-secondary-bg-dark, #495057);
+    color: var(--button-secondary-text-dark, #f8f9fa);
+    border-color: var(--button-secondary-border-dark, #495057);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .save-button {
+    padding: 0.5rem;
+    gap: 0.25rem;
+  }
+
+  .save-button-text {
+    display: none;
+  }
+
+  .save-button::after {
+    display: none;
+  }
+}

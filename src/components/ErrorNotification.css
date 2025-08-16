@@ -1,0 +1,221 @@
+/* Error Notification Styles */
+.error-notification-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+  width: 100%;
+}
+
+.error-notification {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid transparent;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.error-notification-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.error-notification-exiting {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Notification types */
+.error-notification-error {
+  background-color: rgba(255, 107, 107, 0.95);
+  border-color: #ff6b6b;
+  color: #ffffff;
+}
+
+.error-notification-warning {
+  background-color: rgba(255, 193, 7, 0.95);
+  border-color: #ffc107;
+  color: #212529;
+}
+
+.error-notification-info {
+  background-color: rgba(9, 132, 227, 0.95);
+  border-color: #0984e3;
+  color: #ffffff;
+}
+
+.error-notification-success {
+  background-color: rgba(0, 184, 148, 0.95);
+  border-color: #00b894;
+  color: #ffffff;
+}
+
+.error-notification-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.error-notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.error-notification-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.error-notification-message {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.error-notification-timestamp {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+.error-notification-dismiss {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+  margin-top: -0.25rem;
+  margin-right: -0.25rem;
+}
+
+.error-notification-dismiss:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.error-notification-dismiss:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Dark mode adjustments */
+.error-notification-warning {
+  color: #000000;
+}
+
+.error-notification-warning .error-notification-dismiss:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .error-notification-container {
+    top: 0.5rem;
+    right: 0.5rem;
+    left: 0.5rem;
+    max-width: none;
+  }
+  
+  .error-notification {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .error-notification-title {
+    font-size: 0.85rem;
+  }
+  
+  .error-notification-message {
+    font-size: 0.8rem;
+  }
+  
+  .error-notification-timestamp {
+    font-size: 0.7rem;
+  }
+}
+
+/* Animation for stacking notifications */
+.error-notification:nth-child(n+2) {
+  margin-top: -2px;
+  transform: scale(0.98) translateX(100%);
+}
+
+.error-notification-visible:nth-child(n+2) {
+  transform: scale(0.98) translateX(0);
+}
+
+.error-notification:nth-child(n+3) {
+  transform: scale(0.96) translateX(100%);
+}
+
+.error-notification-visible:nth-child(n+3) {
+  transform: scale(0.96) translateX(0);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .error-notification {
+    transition: opacity 0.2s ease;
+    transform: none;
+  }
+  
+  .error-notification-visible {
+    transform: none;
+  }
+  
+  .error-notification-exiting {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .error-notification {
+    border-width: 2px;
+    box-shadow: none;
+  }
+  
+  .error-notification-error {
+    background-color: #dc3545;
+    border-color: #721c24;
+  }
+  
+  .error-notification-warning {
+    background-color: #ffc107;
+    border-color: #664d03;
+    color: #000000;
+  }
+  
+  .error-notification-info {
+    background-color: #0d6efd;
+    border-color: #084298;
+  }
+  
+  .error-notification-success {
+    background-color: #198754;
+    border-color: #0f5132;
+  }
+}

@@ -1,0 +1,435 @@
+.markdown-preview {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--preview-bg, #ffffff);
+  border: 1px solid var(--border-color, #e1e5e9);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--header-bg, #f8f9fa);
+  border-bottom: 1px solid var(--border-color, #e1e5e9);
+}
+
+.preview-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color, #374151);
+}
+
+.preview-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator {
+  font-size: 12px;
+  color: var(--accent-color, #3b82f6);
+  font-weight: 500;
+}
+
+.preview-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  line-height: 1.6;
+  color: var(--text-color, #374151);
+}
+
+.preview-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-secondary, #6b7280);
+  font-style: italic;
+}
+
+/* Markdown content styling */
+.preview-heading {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--heading-color, #111827);
+}
+
+.preview-heading:first-child {
+  margin-top: 0;
+}
+
+.preview-h1 {
+  font-size: 2em;
+  border-bottom: 1px solid var(--border-color, #e1e5e9);
+  padding-bottom: 0.3em;
+}
+
+.preview-h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid var(--border-color, #e1e5e9);
+  padding-bottom: 0.3em;
+}
+
+.preview-h3 {
+  font-size: 1.25em;
+}
+
+.preview-h4 {
+  font-size: 1em;
+}
+
+.preview-h5 {
+  font-size: 0.875em;
+}
+
+.preview-h6 {
+  font-size: 0.85em;
+  color: var(--text-secondary, #6b7280);
+}
+
+.preview-paragraph {
+  margin-bottom: 1em;
+}
+
+.preview-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.preview-list {
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+
+.preview-ul {
+  list-style-type: disc;
+}
+
+.preview-ol {
+  list-style-type: decimal;
+}
+
+.preview-list-item {
+  margin-bottom: 0.25em;
+}
+
+.preview-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.preview-code-inline {
+  background: var(--code-bg, #f3f4f6);
+  color: var(--code-color, #e11d48);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.85em;
+}
+
+.preview-code-block {
+  margin: 1em 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--code-block-bg, #f8f9fa);
+  border: 1px solid var(--border-color, #e1e5e9);
+}
+
+.code-block-header {
+  padding: 8px 12px;
+  background: var(--code-header-bg, #e5e7eb);
+  border-bottom: 1px solid var(--border-color, #e1e5e9);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary, #6b7280);
+}
+
+.code-language {
+  text-transform: uppercase;
+}
+
+.preview-pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  background: transparent;
+}
+
+.preview-pre code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875em;
+  line-height: 1.45;
+  color: var(--code-color, #374151);
+  background: transparent;
+}
+
+.preview-blockquote {
+  margin: 1em 0;
+  padding: 0 1em;
+  border-left: 4px solid var(--accent-color, #3b82f6);
+  background: var(--blockquote-bg, #f8fafc);
+  color: var(--text-secondary, #6b7280);
+  font-style: italic;
+}
+
+.preview-table-wrapper {
+  margin: 1em 0;
+  overflow-x: auto;
+}
+
+.preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.preview-table-header {
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  background: var(--table-header-bg, #f8f9fa);
+  border: 1px solid var(--border-color, #e1e5e9);
+}
+
+.preview-table-cell {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color, #e1e5e9);
+}
+
+.preview-link {
+  color: var(--link-color, #3b82f6);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.preview-link:hover {
+  color: var(--link-hover-color, #1d4ed8);
+  border-bottom-color: var(--link-hover-color, #1d4ed8);
+}
+
+.preview-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 0.5em 0;
+}
+
+.preview-hr {
+  margin: 2em 0;
+  border: none;
+  border-top: 1px solid var(--border-color, #e1e5e9);
+}
+
+.preview-strong {
+  font-weight: 600;
+}
+
+.preview-em {
+  font-style: italic;
+}
+
+/* Math styling variables */
+.markdown-preview {
+  --math-hover-bg: #e0f2fe;
+  --math-edit-bg: #ffffff;
+  --math-editing-bg: #fef3c7;
+}
+
+/* Math styling */
+.katex {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+  padding: 2px 4px;
+  margin: 0 1px;
+  position: relative;
+}
+
+.katex:hover {
+  background-color: var(--math-hover-bg, #e0f2fe);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.katex:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.katex-display {
+  margin: 1.5em 0;
+  text-align: center;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.katex-display:hover {
+  background-color: var(--math-hover-bg, #f0f9ff);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Math edit indicator */
+.katex::after {
+  content: '✏️';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  background: var(--math-edit-bg, #ffffff);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.katex:hover::after {
+  opacity: 1;
+}
+
+/* Math expression highlighting */
+.katex.math-editing {
+  background-color: var(--math-editing-bg, #fef3c7);
+  box-shadow: 0 0 0 2px var(--accent-color, #3b82f6);
+}
+
+/* Improved math display styling */
+.katex-display .katex {
+  padding: 12px 16px;
+  margin: 0;
+}
+
+.katex-display .katex::after {
+  top: -6px;
+  right: -6px;
+}
+
+/* Scrollbar styling */
+.preview-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-content::-webkit-scrollbar-track {
+  background: var(--scrollbar-track, #f1f5f9);
+}
+
+.preview-content::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb, #cbd5e1);
+  border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover, #94a3b8);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .preview-content {
+    padding: 12px;
+  }
+  
+  .preview-header {
+    padding: 8px 12px;
+  }
+  
+  .preview-title {
+    font-size: 14px;
+  }
+  
+  .preview-h1 {
+    font-size: 1.75em;
+  }
+  
+  .preview-h2 {
+    font-size: 1.375em;
+  }
+  
+  .preview-table-wrapper {
+    font-size: 14px;
+  }
+  
+  .preview-table-header,
+  .preview-table-cell {
+    padding: 6px 8px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .markdown-preview {
+    --preview-bg: #1f2937;
+    --header-bg: #111827;
+    --border-color: #374151;
+    --text-color: #f9fafb;
+    --text-secondary: #9ca3af;
+    --heading-color: #ffffff;
+    --code-bg: #374151;
+    --code-color: #fbbf24;
+    --code-block-bg: #111827;
+    --code-header-bg: #374151;
+    --blockquote-bg: #1f2937;
+    --table-header-bg: #111827;
+    --link-color: #60a5fa;
+    --link-hover-color: #93c5fd;
+    --accent-color: #60a5fa;
+    --math-hover-bg: #1e3a8a;
+    --math-edit-bg: #1f2937;
+    --math-editing-bg: #451a03;
+    --scrollbar-track: #374151;
+    --scrollbar-thumb: #6b7280;
+    --scrollbar-thumb-hover: #9ca3af;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .preview-link {
+    border-bottom: 1px solid var(--link-color, #3b82f6);
+  }
+  
+  .katex {
+    border: 1px solid transparent;
+  }
+  
+  .katex:hover {
+    border-color: var(--accent-color, #3b82f6);
+  }
+}
+
+/* Print styles */
+@media print {
+  .markdown-preview {
+    border: none;
+    box-shadow: none;
+  }
+  
+  .preview-header {
+    display: none;
+  }
+  
+  .preview-content {
+    padding: 0;
+    overflow: visible;
+  }
+  
+  .katex {
+    cursor: default;
+  }
+  
+  .katex:hover {
+    background-color: transparent;
+  }
+}

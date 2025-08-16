@@ -1,0 +1,343 @@
+/* Final UI Polish and Styling Improvements */
+
+/* Enhanced focus indicators for accessibility */
+*:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --text-color: #000000;
+    --background-color: #ffffff;
+    --accent-color: #0000ff;
+  }
+  
+  .math-editor,
+  .markdown-editor textarea,
+  .markdown-preview {
+    border: 2px solid #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Enhanced button styles */
+button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Loading states */
+.loading {
+  position: relative;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Enhanced math editor overlay */
+.math-editor-overlay {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.math-editor-overlay::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+}
+
+/* Enhanced error states */
+.error-message {
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+
+.error-message::before {
+  content: '⚠️ ';
+  margin-right: 0.5rem;
+}
+
+/* Success states */
+.success-message {
+  background: #efe;
+  border: 1px solid #cfc;
+  color: #363;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+
+.success-message::before {
+  content: '✅ ';
+  margin-right: 0.5rem;
+}
+
+/* Enhanced typography */
+.markdown-preview {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.7;
+  color: #333;
+}
+
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3,
+.markdown-preview h4,
+.markdown-preview h5,
+.markdown-preview h6 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.markdown-preview h1 {
+  font-size: 2.25rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.markdown-preview h2 {
+  font-size: 1.875rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.25rem;
+}
+
+.markdown-preview h3 {
+  font-size: 1.5rem;
+}
+
+.markdown-preview p {
+  margin-bottom: 1rem;
+}
+
+.markdown-preview code {
+  background: #f5f5f5;
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 0.875em;
+}
+
+.markdown-preview pre {
+  background: #f8f8f8;
+  border: 1px solid #e1e1e1;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.markdown-preview pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Enhanced list styles */
+.markdown-preview ul,
+.markdown-preview ol {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-preview li {
+  margin-bottom: 0.5rem;
+}
+
+/* Enhanced blockquote styles */
+.markdown-preview blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #666;
+  font-style: italic;
+}
+
+/* Enhanced table styles */
+.markdown-preview table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.markdown-preview th,
+.markdown-preview td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.markdown-preview th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+/* Math expression enhancements */
+.katex {
+  font-size: 1.1em;
+}
+
+.katex-display {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+/* Clickable math expressions */
+.katex:hover {
+  background: rgba(0, 102, 204, 0.1);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .math-editor-overlay {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90vw !important;
+    max-width: 400px !important;
+    z-index: 1001 !important;
+  }
+  
+  .markdown-preview h1 {
+    font-size: 1.875rem;
+  }
+  
+  .markdown-preview h2 {
+    font-size: 1.5rem;
+  }
+  
+  .markdown-preview h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .math-editor-overlay,
+  button,
+  .sidebar {
+    display: none !important;
+  }
+  
+  .markdown-preview {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  .katex {
+    font-size: 1em;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .markdown-preview {
+    color: #e1e1e1;
+  }
+  
+  .markdown-preview h1,
+  .markdown-preview h2 {
+    border-color: #444;
+  }
+  
+  .markdown-preview code {
+    background: #2a2a2a;
+    color: #e1e1e1;
+  }
+  
+  .markdown-preview pre {
+    background: #1e1e1e;
+    border-color: #444;
+  }
+  
+  .markdown-preview blockquote {
+    border-color: #666;
+    color: #aaa;
+  }
+  
+  .markdown-preview th {
+    background: #2a2a2a;
+  }
+  
+  .markdown-preview th,
+  .markdown-preview td {
+    border-color: #444;
+  }
+  
+  .math-editor-overlay {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #e1e1e1;
+  }
+  
+  .error-message {
+    background: #4a2a2a;
+    border-color: #6a3a3a;
+    color: #ff9999;
+  }
+  
+  .success-message {
+    background: #2a4a2a;
+    border-color: #3a6a3a;
+    color: #99ff99;
+  }
+}

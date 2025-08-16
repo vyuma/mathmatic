@@ -1,0 +1,166 @@
+/* NoteList Component Styles */
+.note-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.note-item {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--bg-primary);
+}
+
+.note-item:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);
+}
+
+.note-item-selected {
+  border-color: var(--accent-color);
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.note-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.note-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0; /* Allow text truncation */
+}
+
+.note-delete-button {
+  opacity: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.note-item:hover .note-delete-button {
+  opacity: 1;
+}
+
+.note-delete-button:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+  transform: scale(1.1);
+}
+
+.note-preview {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.note-metadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.note-date {
+  font-weight: 500;
+}
+
+.note-tags {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.note-tag {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.125rem 0.375rem;
+  border-radius: 12px;
+  font-size: 0.625rem;
+  font-weight: 500;
+}
+
+.note-tag-more {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Empty state */
+.note-list-empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-secondary);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.note-list-empty p {
+  margin: 0.5rem 0;
+}
+
+.note-list-empty p:first-of-type {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .note-item {
+    padding: 0.75rem;
+  }
+  
+  .note-title {
+    font-size: 0.9rem;
+  }
+  
+  .note-preview {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 1;
+  }
+  
+  .note-metadata {
+    font-size: 0.7rem;
+  }
+  
+  .note-delete-button {
+    opacity: 1; /* Always visible on mobile */
+  }
+}
+
+/* Focus styles for accessibility */
+.note-item:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.note-delete-button:focus {
+  outline: 2px solid #dc3545;
+  outline-offset: 2px;
+}

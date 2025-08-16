@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathField Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .demo-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .math-display {
+            padding: 1rem;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 1rem 0;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            background: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        button:hover {
+            background: #0052a3;
+        }
+    </style>
+</head>
+<body>
+    <h1>MathField Component Demo</h1>
+    
+    <div class="demo-section">
+        <h2>Demo Instructions</h2>
+        <p>This demo page tests the MathField component implementation. To see it in action:</p>
+        <ol>
+            <li>Run <code>npm run dev</code> to start the development server</li>
+            <li>Navigate to the main application</li>
+            <li>The MathField component should be integrated into the markdown editor</li>
+        </ol>
+    </div>
+
+    <div class="demo-section">
+        <h2>Component Features Implemented</h2>
+        <ul>
+            <li>✅ MathfieldElement React wrapper component</li>
+            <li>✅ useMathField custom hook</li>
+            <li>✅ MathLive configuration and customization</li>
+            <li>✅ Keyboard shortcuts for common math symbols</li>
+            <li>✅ Event handling (focus, blur, input, completion)</li>
+            <li>✅ Responsive design with mobile support</li>
+            <li>✅ TypeScript type definitions</li>
+            <li>✅ CSS styling with dark mode support</li>
+            <li>✅ Unit tests for components and hooks</li>
+        </ul>
+    </div>
+
+    <div class="demo-section">
+        <h2>Available Shortcuts</h2>
+        <p>The MathField component includes these keyboard shortcuts:</p>
+        <ul>
+            <li><strong>alpha</strong> → α (\\alpha)</li>
+            <li><strong>beta</strong> → β (\\beta)</li>
+            <li><strong>gamma</strong> → γ (\\gamma)</li>
+            <li><strong>sum</strong> → ∑ (\\sum)</li>
+            <li><strong>int</strong> → ∫ (\\int)</li>
+            <li><strong>frac</strong> → fraction template (\\frac{}{}) </li>
+            <li><strong>sqrt</strong> → square root template (\\sqrt{})</li>
+            <li><strong>lim</strong> → limit template (\\lim_{})</li>
+            <li><strong>infty</strong> → ∞ (\\infty)</li>
+        </ul>
+    </div>
+
+    <div class="demo-section">
+        <h2>Next Steps</h2>
+        <p>Task 5.1 is now complete. The implementation includes:</p>
+        <ul>
+            <li><strong>MathField.tsx</strong> - React wrapper for MathfieldElement</li>
+            <li><strong>useMathField.ts</strong> - Custom hook for MathField state management</li>
+            <li><strong>MathEditor.tsx</strong> - Updated with MathField integration</li>
+            <li><strong>MathEditor.css</strong> - Styling for the math editor</li>
+            <li><strong>mathlive.d.ts</strong> - TypeScript declarations</li>
+            <li><strong>Tests</strong> - Unit tests for components and hooks</li>
+        </ul>
+        <p>Ready to proceed to task 5.2: 数式入力モードの実装</p>
+    </div>
+</body>
+</html>

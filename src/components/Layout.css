@@ -1,0 +1,141 @@
+/* Layout Component Styles */
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.layout-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--bg-primary, #ffffff);
+}
+
+/* Responsive breakpoints */
+:root {
+  --breakpoint-mobile: 768px;
+  --breakpoint-tablet: 1024px;
+  --breakpoint-desktop: 1200px;
+  
+  /* Color variables */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --border-color: #e1e5e9;
+  --text-primary: #2c3e50;
+  --text-secondary: #6c757d;
+  --accent-color: #007bff;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --border-color: #404040;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --accent-color: #4dabf7;
+  }
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 767px) {
+  .layout-body {
+    position: relative;
+  }
+}
+
+/* Touch device optimizations */
+.layout.touch-optimized {
+  /* Prevent zoom on double tap */
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.layout.touch-optimized .main-content {
+  /* Allow text selection in main content */
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Mobile device optimizations */
+.layout.mobile-optimized {
+  /* Optimize for mobile viewport */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+.layout.mobile-optimized .main-content {
+  /* Add safe area padding for notched devices */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Tablet optimizations */
+.layout.tablet-optimized {
+  /* Optimize touch targets for tablet */
+  --min-touch-target: 44px;
+}
+
+.layout.tablet-optimized .main-content {
+  /* Better spacing for tablet */
+  padding: 8px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .layout.touch-optimized {
+    border: 2px solid var(--border-color);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .layout.touch-optimized * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Tablet and desktop */
+@media (min-width: 768px) {
+  .layout-body {
+    flex-direction: row;
+  }
+  
+  /* Desktop-specific optimizations */
+  .layout:not(.touch-optimized) {
+    /* Re-enable text selection for desktop */
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .layout.touch-optimized .main-content {
+    /* More generous padding on large touch screens */
+    padding: 16px;
+  }
+}
