@@ -1,4 +1,5 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+import React, { Component } from 'react';
+import type { ErrorInfo, ReactNode } from 'react';
 import { logError, classifyError, ErrorSeverity } from '../utils/errors';
 import type { ErrorInfo as CustomErrorInfo } from '../types';
 import './ErrorBoundary.css';
@@ -37,9 +38,9 @@ export class ErrorBoundary extends Component<Props, State> {
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // Convert React ErrorInfo to our custom ErrorInfo
     const customErrorInfo: CustomErrorInfo = {
-      componentStack: errorInfo.componentStack,
+      componentStack: errorInfo.componentStack || undefined,
       errorBoundary: this.constructor.name,
-      errorBoundaryStack: errorInfo.errorBoundaryStack
+      // errorBoundaryStack: errorInfo.errorBoundaryStack // Removed as it does not exist
     };
 
     // Log the error

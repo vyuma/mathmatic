@@ -149,7 +149,7 @@ export function debounce<T extends (...args: any[]) => any>(
   wait: number,
   immediate?: boolean
 ): (...args: Parameters<T>) => void {
-  let timeout: number | null = null;
+  let timeout: ReturnType<typeof window.setTimeout> | null = null;
   
   return function executedFunction(...args: Parameters<T>) {
     const later = () => {
@@ -160,7 +160,8 @@ export function debounce<T extends (...args: any[]) => any>(
     const callNow = immediate && !timeout;
     
     if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
+    // @ts-ignore
+    timeout = window.setTimeout(later, wait) as number;
     
     if (callNow) func(...args);
   };

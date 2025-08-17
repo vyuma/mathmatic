@@ -1,10 +1,15 @@
-import { Note, ExportFormat, ExportOptions, ExportResult } from '../types';
+import type { Note, ExportFormat, ExportOptions, ExportResult } from '../types';
 
 // Export error class
 export class ExportError extends Error {
-  constructor(message: string, public format: string, public cause?: Error) {
+  public format: string;
+  public cause?: Error;
+  
+  constructor(message: string, format: string, cause?: Error) {
     super(message);
     this.name = 'ExportError';
+    this.format = format;
+    this.cause = cause;
   }
 }
 

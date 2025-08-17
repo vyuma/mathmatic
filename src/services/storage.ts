@@ -1,10 +1,15 @@
-import { Note, NoteMetadata } from '../types';
+import type { Note, NoteMetadata } from '../types';
 
 // Storage error class
 export class StorageError extends Error {
-  constructor(message: string, public operation?: string, public cause?: Error) {
+  public operation?: string;
+  public cause?: Error;
+  
+  constructor(message: string, operation?: string, cause?: Error) {
     super(message);
     this.name = 'StorageError';
+    this.operation = operation;
+    this.cause = cause;
   }
 }
 
@@ -229,14 +234,14 @@ export class LocalStorageService implements StorageService {
   }
 
   // JSON serialization helpers for Date objects
-  private dateReplacer(key: string, value: any): any {
+  private dateReplacer(_key: string, value: any): any {
     if (value instanceof Date) {
       return { __type: 'Date', value: value.toISOString() };
     }
     return value;
   }
 
-  private dateReviver(key: string, value: any): any {
+  private dateReviver(_key: string, value: any): any {
     if (value && typeof value === 'object' && value.__type === 'Date') {
       return new Date(value.value);
     }

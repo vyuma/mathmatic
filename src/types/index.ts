@@ -67,9 +67,8 @@ export interface ExportResult {
 
 // Error handling types
 export interface ErrorInfo {
-  componentStack: string;
+  componentStack: string | undefined;
   errorBoundary?: string;
-  errorBoundaryStack?: string;
 }
 
 export interface ErrorNotification {

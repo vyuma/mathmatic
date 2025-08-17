@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Note } from '../types';
+import type { Note } from '../types';
 import { LocalStorageService } from '../services/storage';
 import { createBlankNote, prepareNoteForSave, hasUnsavedChanges } from '../utils/noteUtils';
 import { useAutoSave } from './useAutoSave';

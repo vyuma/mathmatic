@@ -23,23 +23,6 @@ declare module "mathlive" {
   }
 }
 
-// Declare the custom element for TypeScript
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "math-field": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      > & {
-        ref?: React.Ref<MathfieldElement>;
-        "virtual-keyboard-mode"?: string;
-        "smart-mode"?: boolean;
-        "read-only"?: boolean;
-      };
-    }
-  }
-}
-
 // MathField component props interface
 export interface MathFieldProps {
   value?: string;
@@ -393,6 +376,7 @@ export const MathField = forwardRef<MathFieldRef, MathFieldProps>(
     }
 
     return (
+      // @ts-ignore
       <math-field
         ref={mathfieldRef as React.RefObject<HTMLElement>}
         className={className}

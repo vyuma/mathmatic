@@ -4,8 +4,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import type { Components } from "react-markdown";
-import { useMathError } from "../contexts/ErrorContext";
-import { MathRenderError } from "../utils/errors";
+// import { useMathError } from "../contexts/ErrorContext"; // Removed as it's not used
 import "./MarkdownPreview.css";
 
 interface MarkdownPreviewProps {
@@ -176,7 +175,7 @@ export const MarkdownPreview: React.FC<MarkdownPreviewProps> = React.memo(
   
 
     // Error handling
-    const { handleMathError } = useMathError();
+    // const { handleMathError } = useMathError(); // Removed as it's not used
 
     // Debounce content updates
     useEffect(() => {
@@ -203,14 +202,14 @@ export const MarkdownPreview: React.FC<MarkdownPreviewProps> = React.memo(
           strict: false,
           macros: {},
         },
-      ] as const;
+      ];
     }, []);
 
     // Memoize markdown options for performance
     const markdownOptions = useMemo(
       () => ({
         remarkPlugins: [remarkGfm, remarkMath],
-        rehypePlugins: [rehypeKatexWithErrorHandling],
+        rehypePlugins: [rehypeKatexWithErrorHandling as any],
         components,
       }),
       [rehypeKatexWithErrorHandling]

@@ -61,7 +61,7 @@ Try clicking on the math expressions above to see the editing functionality in a
 `;
 
 export const MathPreviewDemo: React.FC = () => {
-  const [content, setContent] = useState(sampleContent);
+  const [content, _setContent] = useState(sampleContent);
   const [isEditing, setIsEditing] = useState(false);
   const [editingMath, setEditingMath] = useState({
     latex: '',

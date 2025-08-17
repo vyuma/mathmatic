@@ -2,22 +2,34 @@
 
 // Math rendering error class
 export class MathRenderError extends Error {
-  constructor(message: string, public latex: string, public cause?: Error) {
+  public latex: string;
+  public cause?: Error;
+  
+  constructor(message: string, latex: string, cause?: Error) {
     super(message);
     this.name = 'MathRenderError';
+    this.latex = latex;
+    this.cause = cause;
   }
 }
 
 // Generic application error class
 export class AppError extends Error {
+  public code: string;
+  public severity: 'low' | 'medium' | 'high';
+  public cause?: Error;
+  
   constructor(
     message: string,
-    public code: string,
-    public severity: 'low' | 'medium' | 'high' = 'medium',
-    public cause?: Error
+    code: string,
+    severity: 'low' | 'medium' | 'high' = 'medium',
+    cause?: Error
   ) {
     super(message);
     this.name = 'AppError';
+    this.code = code;
+    this.severity = severity;
+    this.cause = cause;
   }
 }
 
@@ -47,21 +59,23 @@ export const ERROR_MESSAGES = {
 };
 
 // Error severity levels
-export enum ErrorSeverity {
-  LOW = 'low',
-  MEDIUM = 'medium',
-  HIGH = 'high'
-}
+export const ErrorSeverity = {
+  LOW: 'low',
+  MEDIUM: 'medium',
+  HIGH: 'high'
+} as const;
+export type ErrorSeverity = typeof ErrorSeverity[keyof typeof ErrorSeverity];
 
 // Error categories
-export enum ErrorCategory {
-  STORAGE = 'storage',
-  MATH = 'math',
-  EXPORT = 'export',
-  NETWORK = 'network',
-  COMPONENT = 'component',
-  UNKNOWN = 'unknown'
-}
+export const ErrorCategory = {
+  STORAGE: 'storage',
+  MATH: 'math',
+  EXPORT: 'export',
+  NETWORK: 'network',
+  COMPONENT: 'component',
+  UNKNOWN: 'unknown'
+} as const;
+export type ErrorCategory = typeof ErrorCategory[keyof typeof ErrorCategory];
 
 // Error classification utility
 export function classifyError(error: Error): { category: ErrorCategory; severity: ErrorSeverity; userMessage: string } {

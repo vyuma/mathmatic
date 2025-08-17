@@ -9,5 +9,5 @@ export { NoteList } from './NoteList';
 export { SaveButton } from './SaveButton';
 export { SaveStatus } from './SaveStatus';
 export { ErrorBoundary } from './ErrorBoundary';
-export { ErrorNotification } from './ErrorNotification';
+export { ErrorNotificationItem } from './ErrorNotification';
 export { ConfirmDialog } from './ConfirmDialog';

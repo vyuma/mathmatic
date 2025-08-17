@@ -1,7 +1,9 @@
-import React, { createContext, useContext, ReactNode } from 'react';
+import React, { createContext, useContext } from 'react';
+import type { ReactNode } from 'react';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { ErrorNotificationContainer } from '../components/ErrorNotification';
-import { useErrorNotifications, UseErrorNotificationsReturn } from '../hooks/useErrorNotifications';
+import { useErrorNotifications } from '../hooks/useErrorNotifications';
+import type { UseErrorNotificationsReturn } from '../hooks/useErrorNotifications';
 import type { ErrorInfo } from '../types';
 
 interface ErrorContextValue extends UseErrorNotificationsReturn {
@@ -17,7 +19,7 @@ interface ErrorProviderProps {
 export const ErrorProvider: React.FC<ErrorProviderProps> = ({ children }) => {
   const errorNotifications = useErrorNotifications();
 
-  const handleBoundaryError = (error: Error, errorInfo: ErrorInfo) => {
+  const handleBoundaryError = (_error: Error, _errorInfo: ErrorInfo) => {
     // Show critical error notification
     errorNotifications.showNotification({
       type: 'error',

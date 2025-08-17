@@ -113,12 +113,23 @@ export function hasPhysicalKeyboard(): boolean {
 }
 
 // Get viewport information
-export function getViewportInfo() {
+export interface ViewportInfo {
+  width: number;
+  height: number;
+  orientation: 'portrait' | 'landscape';
+  pixelRatio: number;
+  isMobile: boolean;
+  isTablet: boolean;
+  isTouch: boolean;
+  hasPhysicalKeyboard: boolean;
+}
+
+export function getViewportInfo(): ViewportInfo {
   try {
     return {
       width: window.innerWidth,
       height: window.innerHeight,
-      orientation: window.innerWidth > window.innerHeight ? 'landscape' : 'portrait',
+      orientation: (window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'),
       pixelRatio: getDevicePixelRatio(),
       isMobile: isMobileDevice(),
       isTablet: isTabletDevice(),
@@ -130,7 +141,7 @@ export function getViewportInfo() {
     return {
       width: 1024,
       height: 768,
-      orientation: 'landscape' as const,
+      orientation: 'landscape',
       pixelRatio: 1,
       isMobile: false,
       isTablet: false,
@@ -145,7 +156,7 @@ export function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout;
+  let timeout: ReturnType<typeof setTimeout>;
   
   return (...args: Parameters<T>) => {
     clearTimeout(timeout);
