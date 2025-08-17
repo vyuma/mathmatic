@@ -89,8 +89,8 @@ export const MathEditor: React.FC<MathEditorProps> = ({
             focus();
             // For touch devices, ensure virtual keyboard appears
             if (deviceInfo.isTouch) {
-              // Trigger a click event to ensure virtual keyboard shows
-              mathFieldRef.current.click?.();
+              // Additional focus attempt for touch devices
+              focus();
             }
           }
         }, 150); // Slightly longer delay for better reliability
@@ -102,9 +102,7 @@ export const MathEditor: React.FC<MathEditorProps> = ({
     return null;
   }
 
-  const touchOptimizedVirtualKeyboardMode = deviceInfo.isTouch && !deviceInfo.hasPhysicalKeyboard 
-    ? 'onfocus' 
-    : 'manual';
+  // Touch optimization is handled in the MathField component
 
   return (
     <div 

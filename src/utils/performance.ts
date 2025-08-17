@@ -149,7 +149,7 @@ export function debounce<T extends (...args: any[]) => any>(
   wait: number,
   immediate?: boolean
 ): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout | null = null;
+  let timeout: number | null = null;
   
   return function executedFunction(...args: Parameters<T>) {
     const later = () => {
@@ -197,7 +197,7 @@ export async function measureExecutionTime<T>(
     const result = await fn();
     const end = performance.now();
     
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       console.log(`${name} execution time: ${(end - start).toFixed(2)}ms`);
     }
     
@@ -205,7 +205,7 @@ export async function measureExecutionTime<T>(
   } catch (error) {
     const end = performance.now();
     
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       console.log(`${name} execution time (with error): ${(end - start).toFixed(2)}ms`);
     }
     

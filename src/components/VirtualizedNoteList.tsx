@@ -189,7 +189,7 @@ export const VirtualizedNoteList: React.FC<VirtualizedNoteListProps> = React.mem
       onScroll={handleScroll}
     >
       <div style={{ height: totalHeight, position: 'relative' }}>
-        {visibleItems.map(({ index, note, style }) => (
+        {visibleItems.map(({ note, style }) => (
           <NoteItem
             key={note.id}
             note={note}
